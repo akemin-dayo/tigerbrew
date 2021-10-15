@@ -26,6 +26,16 @@ class Qemu < Formula
     sha256 "4b4c2dce4c055f0a2adb93d571987a3d40c96c6cbfd9244d19b9708ce5aea454"
   end
 
+  # TODO: Write a better explanation.
+  # TODO 2: Determine if gcc6 or gcc5 may work better for QEMU compilation than gcc7.
+  fails_with :gcc_4_0 do
+    cause "QEMU fails to build correctly with GCC 4.0. Please use a newer version of GCC."
+  end
+  
+  fails_with :gcc do
+    cause "QEMU fails to build correctly with GCC 4.2. Please use a newer version of GCC."
+  end
+
   def install
     ENV["LIBTOOL"] = "glibtool"
 
