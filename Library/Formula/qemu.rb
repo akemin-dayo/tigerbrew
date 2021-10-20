@@ -15,6 +15,7 @@ class Qemu < Formula
   depends_on "gnutls"
   depends_on "glib"
   depends_on "pixman"
+  depends_on "libutil" if MacOS.version < :leopard
   depends_on "vde" => :optional
   if MacOS.version < :leopard
     # Enable the SDL UI by default on OS X versions older than 10.5 because the Cocoa UI (which is otherwise enabled by default) is unavailable on these OS X versions.
